@@ -1,0 +1,17 @@
+{
+    "name": "gitbook-plugin-customizableLastModified",
+    "version": "0.0.1",
+    "description": "A Customizable Last Modified Gitbook Plugin",
+    "engines": {
+        "gitbook": ">1.x.x"
+    },
+    "gitbook": {
+        "properties": {
+            "location": {
+                "type": "string",
+                "default": "bottom",
+                "description": "Options: top, bottom, underTitle. Appends the file's last modification date to the top or the bottom of the file."
+            }
+        }
+    }
+}
