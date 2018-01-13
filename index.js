@@ -1,10 +1,4 @@
 module.exports = {
-    website: {
-        assets: './book',
-        js: [
-            'plugin.js'
-        ]
-    },
     hooks: {
         "page:before": function (page) {
             if (page.name != "SUMMARY.md") {
@@ -22,17 +16,22 @@ module.exports = {
 
                 var content = page.content;
 
-                if (location == "top") {
+                if (location.toLowerCase() == "top") {
                     content = `>*Last modified: {{ file.mtime }}*\n\n----\n\n${content}`;
                 }
-                else if (location == "bottom") {
+                else if (location.toLowerCase() == "bottom") {
                     content = `${content}\n\n----\n\n>*Last modified: {{ file.mtime }}*`;
                 }
-                else if (location == "underTitle") {
+                else if (location.toLowerCase() == "undertitle") {
                     // todo
                 }
+                else {
+                    console.warn('Invalid lastModifiedLocation Found! Value was: ' + location);
+                }
+
                 page.content = content;
             }
+
             return page;
         }
     }
